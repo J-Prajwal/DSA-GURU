@@ -7,7 +7,7 @@ arr = [6, 5, 4, 3, 2, 1]; // sorted
 let k = -4;
 
 let res;
-if (arr[0] < arr[1]) {
+if (arr[0] < arr[arr.length-1]) {
   res = bsAscendingOrder(arr, arr.length, k);
 } else {
   res = bsDescendingOrder(arr, arr.length, k);
@@ -22,14 +22,14 @@ function bsAscendingOrder(arr, n, k) {
   while (start <= end) {
     mid = start + Math.floor((end - start) / 2); // Math.floor(end/2);
     if (arr[mid] === k) {
-      return true;
+      return 1;
     } else if (arr[mid] < k) {
       start = mid + 1;
     } else {
       end = mid - 1;
     }
   }
-  return false;
+  return -1;
 }
 
 function bsDescendingOrder(arr, n, k) {
@@ -39,12 +39,12 @@ function bsDescendingOrder(arr, n, k) {
   while (start <= end) {
     mid = start + Math.floor((end - start) / 2); // Math.floor(end/2);
     if (arr[mid] === k) {
-      return true;
+      return 1;
     } else if (arr[mid] < k) {
       end = mid - 1;
     } else {
       start = mid + 1;
     }
   }
-  return false;
+  return -1;
 }
